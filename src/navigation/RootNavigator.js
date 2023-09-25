@@ -4,7 +4,7 @@ import Account from '../screens/Account';
 import Icons from '@expo/vector-icons/MaterialIcons';
 import { HomeIcon, ShoppingBagIcon } from 'react-native-heroicons/outline';
 import { Squares2X2Icon } from 'react-native-heroicons/solid';
-
+import { useFonts } from 'expo-font';
 import Cart from '../screens/Cart';
 import Home from '../screens/Home';
 import Menu from '../screens/Menu';
@@ -16,6 +16,16 @@ const Tab = createBottomTabNavigator();
 const { profileImg } = images;
 
 function RootNavigator() {
+  const [fontsLoaded] = useFonts({
+    normal: require('../assets/fonts/Poppins-Regular.ttf'),
+    semibold: require('../assets/fonts/Poppins-Medium.ttf'),
+    bold: require('../assets/fonts/Poppins-Bold.ttf'),
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
     <Tab.Navigator initialRouteName="Menu">
       <Tab.Screen
@@ -26,6 +36,7 @@ function RootNavigator() {
           tabBarIcon(props) {
             return <HomeIcon {...props} />;
           },
+          tabBarLabelStyle: { fontFamily: 'normal' },
           tabBarActiveTintColor: COLORS.burntOrange,
           tabBarInactiveTintColor: COLORS.descText,
         }}

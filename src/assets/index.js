@@ -3,6 +3,7 @@ import AfricanDoughnut from './images/AfricanDoughnut.png';
 import ChickenStew from './images/ChickenStew.png';
 import EfoRiro from './images/EfoRiro.png';
 import profileImg from './images/profileImg.png';
+import MoinMoin from './images/MoinMoin.png';
 
 export const images = {
   YamPorridge,
@@ -10,4 +11,5 @@ export const images = {
   ChickenStew,
   EfoRiro,
   profileImg,
+  MoinMoin,
 };

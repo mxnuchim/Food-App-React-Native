@@ -3,9 +3,9 @@ import { images } from '../assets';
 const dummyText =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eleifend justo quis dui facilisis, ut volutpat massa feugiat. Sed consectetur justo ac lacinia tristique. Vestibulum auctor, mi at hendrerit luctus, ante libero consequat neque, sed suscipit odio libero vel justo. Nulla facilisi. Vivamus ultricies tortor in bibendum. Cras euismod sapien id quam hendrerit, non viverra ante varius.';
 
-const { AfricanDoughnut, EfoRiro, ChickenStew, YamPorridge } = images;
+const { AfricanDoughnut, MoinMoin, EfoRiro, ChickenStew, YamPorridge } = images;
 
-export const foodItems = [
+export const menuItems = [
   {
     id: 1,
     name: 'African Doughnut Mix',
@@ -18,7 +18,7 @@ export const foodItems = [
     howToPrepare: dummyText,
     dietaryInfo: dummyText,
     storageInfo: dummyText,
-    Extra: dummyText,
+    extra: dummyText,
   },
   {
     id: 2,
@@ -32,11 +32,12 @@ export const foodItems = [
     howToPrepare: dummyText,
     dietaryInfo: dummyText,
     storageInfo: dummyText,
-    Extra: dummyText,
+    extra: dummyText,
   },
   {
     id: 3,
-    name: 'Asaro(Yam Porridge)',
+    name: 'Asaro',
+    otherName: '(Yam Porridge)',
     img: YamPorridge,
     price: 30,
     description: dummyText,
@@ -46,7 +47,7 @@ export const foodItems = [
     howToPrepare: dummyText,
     dietaryInfo: dummyText,
     storageInfo: dummyText,
-    Extra: dummyText,
+    extra: dummyText,
   },
   {
     id: 4,
@@ -60,12 +61,13 @@ export const foodItems = [
     howToPrepare: dummyText,
     dietaryInfo: dummyText,
     storageInfo: dummyText,
-    Extra: dummyText,
+    extra: dummyText,
   },
   {
     id: 5,
-    name: 'African Doughnut Mix',
-    img: AfricanDoughnut,
+    name: 'Moin Moin',
+    otherName: '(Bean cake)',
+    img: MoinMoin,
     price: 30,
     description: dummyText,
     ingredients:
@@ -74,7 +76,7 @@ export const foodItems = [
     howToPrepare: dummyText,
     dietaryInfo: dummyText,
     storageInfo: dummyText,
-    Extra: dummyText,
+    extra: dummyText,
   },
   {
     id: 6,
@@ -88,6 +90,6 @@ export const foodItems = [
     howToPrepare: dummyText,
     dietaryInfo: dummyText,
     storageInfo: dummyText,
-    Extra: dummyText,
+    extra: dummyText,
   },
 ];
