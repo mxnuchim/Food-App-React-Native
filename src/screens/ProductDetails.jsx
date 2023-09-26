@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
   },
   image: {
     height: 300,
-    width: 320,
+    width: '100%',
     objectFit: 'contain',
     borderRadius: 8,
     backgroundColor: COLORS.bgWhite,
