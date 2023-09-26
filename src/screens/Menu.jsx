@@ -22,6 +22,7 @@ const Menu = () => {
   const navigateToDetailsPage = (product) => {
     navigation.navigate('ProductDetails', { product });
   };
+
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.heading}>Menu</Text>
