@@ -2,7 +2,7 @@
 
 This is an Expo-managed React Native mobile application for the Front-end Developer assessment. The app allows users to view and interact with a product page's UI based on the provided Figma design.
 
-![Screenshot](https://github.com/mxnuchim/Food-App-React-Native/assets/55309494/79e68111-b5f1-4a6e-8bdf-662566591e86)
+![collage](https://github.com/mxnuchim/Food-App-React-Native/assets/55309494/45df8093-8d7a-4055-992e-2a575c9986ef)
 
 
 ## Table of Contents
