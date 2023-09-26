@@ -25,33 +25,35 @@ const Menu = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.heading}>Menu</Text>
-      <View style={styles.separator} />
-      <Input
-        withSearchIcon
-        placeholder={'Search'}
-        value={searchText}
-        onChangeText={(text) => {
-          setSearchText(text);
-        }}
-        containerStyle={{ width: '90%' }}
-      />
+      <View style={styles.main}>
+        <Text style={styles.heading}>Menu</Text>
+        <View style={styles.separator} />
+        <Input
+          withSearchIcon
+          placeholder={'Search'}
+          value={searchText}
+          onChangeText={(text) => {
+            setSearchText(text);
+          }}
+          containerStyle={{ width: '96%' }}
+        />
 
-      <FlatList
-        data={menuItems}
-        renderItem={({ item }) => (
-          <MenuItem
-            item={item}
-            onAddToCart={() => console.warn('added')}
-            onNavigateToDetails={() => navigateToDetailsPage(item)}
-          />
-        )}
-        numColumns={2}
-        keyExtractor={(item) => item.id}
-        style={{ width: screenWidth }}
-        contentContainerStyle={styles.menuList}
-        showsVerticalScrollIndicator={false}
-      />
+        <FlatList
+          data={menuItems}
+          renderItem={({ item }) => (
+            <MenuItem
+              item={item}
+              onAddToCart={() => console.warn('added')}
+              onNavigateToDetails={() => navigateToDetailsPage(item)}
+            />
+          )}
+          numColumns={2}
+          keyExtractor={(item) => item.id}
+          style={{ width: screenWidth }}
+          contentContainerStyle={styles.menuList}
+          showsVerticalScrollIndicator={false}
+        />
+      </View>
     </SafeAreaView>
   );
 };
@@ -64,7 +66,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: COLORS.bgGray,
-    marginHorizontal: '2.5%',
+  },
+  main: {
+    flex: 1,
+    width: '100%',
+    backgroundColor: COLORS.bgGray,
+    paddingHorizontal: '5%',
+    alignItems: 'center',
   },
   heading: {
     fontFamily: 'semibold',
