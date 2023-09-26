@@ -3,11 +3,16 @@ import React from 'react';
 import { ShoppingBagIcon } from 'react-native-heroicons/outline';
 import { COLORS } from '../data/constants';
 
-const Button = ({ btnText, withIcon, onPress }) => {
+const Button = ({ btnText, withIcon, onPress, btnStyle, btnTextStyle }) => {
   return (
-    <Pressable onPress={onPress} style={styles.btnContainer}>
+    <Pressable
+      onPress={onPress}
+      style={{ ...styles.btnContainer, ...btnStyle }}
+    >
       {withIcon ? <ShoppingBagIcon color={COLORS.bgWhite} /> : null}
-      <Text style={styles.btnText}>{btnText ?? 'Add to cart'}</Text>
+      <Text style={{ ...styles.btnText, ...btnTextStyle }}>
+        {btnText ?? 'Add to cart'}
+      </Text>
     </Pressable>
   );
 };
@@ -26,6 +31,12 @@ const styles = StyleSheet.create({
     gap: 5,
     width: '100%',
     marginTop: 5,
+    height: 40,
   },
-  btnText: { color: COLORS.bgWhite, flexShrink: 1, fontFamily: 'normal' },
+  btnText: {
+    color: COLORS.bgWhite,
+    flexShrink: 1,
+    fontFamily: 'normal',
+    fontSize: 14,
+  },
 });

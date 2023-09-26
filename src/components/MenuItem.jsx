@@ -6,15 +6,17 @@ import Button from './Button';
 import { HeartIcon } from 'react-native-heroicons/outline';
 import { HeartIcon as HeartIconSolid } from 'react-native-heroicons/solid';
 
-const MenuItem = ({ text, price, image, onAddToCart }) => {
+const MenuItem = ({ item, onAddToCart, onNavigateToDetails }) => {
   const [liked, setLiked] = useState(false);
+
+  const nameText = item.name + ' ' + item?.otherName;
 
   const toggleLiked = () => {
     setLiked(!liked);
   };
 
   return (
-    <View style={styles.container}>
+    <Pressable style={styles.container} onPress={onNavigateToDetails}>
       <Pressable style={styles.heart} onPress={toggleLiked}>
         {liked ? (
           <HeartIconSolid color={'red'} />
@@ -23,18 +25,35 @@ const MenuItem = ({ text, price, image, onAddToCart }) => {
         )}
       </Pressable>
       <View style={{ backgroundColor: COLORS.bgWhite }}>
-        <Image source={image} style={styles.image} />
+        <Image source={item.img} style={styles.image} />
       </View>
       <View style={styles.midContainer}>
-        <Text style={styles.name}>
-          {text.length <= 11 ? text : text.slice(0, 11) + '...'}
-        </Text>
+        <View style={{ flexDirection: 'row' }}>
+          <Text style={styles.name}>
+            {item?.otherName && item.name.length <= 11
+              ? item.name
+              : item.name.length <= 11
+              ? item.name
+              : `${item.name.slice(0, 11)}...`}
+            {item.otherName ? (
+              <Text
+                style={{
+                  ...styles.name,
+                  fontFamily: 'normal',
+                  color: COLORS.descText,
+                }}
+              >
+                {' ' + item.otherName.slice(0, 11 - item.name.length) + '...'}
+              </Text>
+            ) : null}
+          </Text>
+        </View>
         <Text style={{ ...styles.name, color: COLORS.burntOrange }}>
-          £{price}
+          £{item.price.toFixed(0)}
         </Text>
       </View>
       <Button withIcon onPress={onAddToCart} />
-    </View>
+    </Pressable>
   );
 };
 
@@ -51,6 +70,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     gap: 10,
     paddingHorizontal: '2%',
+    margin: 10,
   },
   heart: { position: 'absolute', top: 13, right: 13, zIndex: 1 },
   image: { height: 100, width: 100, objectFit: 'contain' },

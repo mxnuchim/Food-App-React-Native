@@ -10,8 +10,11 @@ import Home from '../screens/Home';
 import Menu from '../screens/Menu';
 import { COLORS } from '../data/constants';
 import { images } from '../assets';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import ProductDetails from '../screens/ProductDetails';
 
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
 const { profileImg } = images;
 
@@ -26,6 +29,23 @@ function RootNavigator() {
     return null;
   }
 
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Root"
+        component={BottomTabNavigator}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="ProductDetails"
+        component={ProductDetails}
+        options={{ headerShown: false }}
+      />
+    </Stack.Navigator>
+  );
+}
+
+function BottomTabNavigator() {
   return (
     <Tab.Navigator initialRouteName="Menu">
       <Tab.Screen

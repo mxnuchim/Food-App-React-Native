@@ -3,9 +3,21 @@ import React, { useState } from 'react';
 import { COLORS } from '../data/constants';
 import { TrashIcon, MinusIcon, PlusIcon } from 'react-native-heroicons/outline';
 
-const CartItem = ({ item }) => {
+const CartItem = ({ item, updateQuantity }) => {
   const [quantity, setQuantity] = useState(1);
   const [totalPrice, setTotalPrice] = useState(item.price * quantity);
+
+  const handleIncreaseQuantity = () => {
+    setQuantity(quantity + 1);
+    updateQuantity(item.id, quantity + 1);
+  };
+
+  const handleDecreaseQuantity = () => {
+    if (item.quantity > 1) {
+      setQuantity(quantity - 1);
+      updateQuantity(item.id, quantity - 1);
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -32,18 +44,18 @@ const CartItem = ({ item }) => {
           £{totalPrice}
         </Text>
         <Pressable>
-          <TrashIcon color={COLORS.descText} />
+          <TrashIcon color={COLORS.descText} size={20} />
         </Pressable>
       </View>
 
       {/** Right side */}
       <View style={styles.rightContainer}>
-        <Pressable style={styles.btn}>
-          <MinusIcon color={COLORS.mainText} />
+        <Pressable style={styles.btn} onPress={handleDecreaseQuantity}>
+          <MinusIcon color={COLORS.mainText} size={16} />
         </Pressable>
         <Text style={styles.name}>{quantity}</Text>
-        <Pressable style={styles.btn}>
-          <PlusIcon color={COLORS.mainText} />
+        <Pressable style={styles.btn} onPress={handleIncreaseQuantity}>
+          <PlusIcon color={COLORS.mainText} size={16} />
         </Pressable>
       </View>
     </View>
@@ -64,8 +76,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: '5%',
   },
   image: {
-    height: 100,
-    width: 100,
+    height: 92,
+    width: 92,
     objectFit: 'contain',
   },
   midContainer: {
@@ -73,7 +85,7 @@ const styles = StyleSheet.create({
     flex: 1,
     gap: 7,
   },
-  name: { fontFamily: 'semibold', fontSize: 16 },
+  name: { fontFamily: 'semibold', fontSize: 14 },
   rightContainer: {
     alignItems: 'center',
     justifyContent: 'space-between',
