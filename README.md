@@ -4,7 +4,6 @@ This is an Expo-managed React Native mobile application for the Front-end Develo
 
 ![collage](https://github.com/mxnuchim/Food-App-React-Native/assets/55309494/45df8093-8d7a-4055-992e-2a575c9986ef)
 
-
 ## Table of Contents
 
 - [Getting Started](#getting-started)
@@ -61,7 +60,7 @@ yarn
 To start the Expo development server and run the app on a simulator or device, use the following commands::
 
 ```bash
-cd food-app-assessment
+npx expo start --clear
 ```
 
 ## Features
